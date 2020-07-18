@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Events Listing</h1>
-    <EventCard v-for="event in events" :key="event.id" :event="event" />
+    <EventCard v-for="event in events" :key="event.id" :event="event"/>
   </div>
 </template>
 
@@ -24,10 +24,8 @@ export default {
         this.events = response.data
       })
       .catch(error => {
-        console.log('There was a error:' + error.response)
+        console.log('There was an error:', error.response)
       })
   }
 }
 </script>
-
-<style></style>

@@ -6,37 +6,29 @@
       <h5>Organized by {{ event.organizer }}</h5>
       <h5>Category: {{ event.category }}</h5>
     </div>
+
     <BaseIcon name="map"><h2>Location</h2></BaseIcon>
+
     <address>{{ event.location }}</address>
+
     <h2>Event details</h2>
     <p>{{ event.description }}</p>
-    <h2>
-      Attendees
-      <span class="badge -fill-gradient">{{
-        event.attendees ? event.attendees.length : 0
-      }}</span>
+
+    <h2>Attendees
+      <span class="badge -fill-gradient">{{ event.attendees ? event.attendees.length : 0 }}</span>
     </h2>
     <ul class="list-group">
-      <li
-        v-for="(attendee, index) in event.attendees"
-        :key="index"
-        class="list-item"
-      >
+      <li v-for="(attendee, index) in event.attendees" :key="index" class="list-item">
         <b>{{ attendee.name }}</b>
       </li>
     </ul>
   </div>
 </template>
-
 <script>
 import EventService from '@/services/EventService.js'
+
 export default {
-  props: {
-    id: {
-      type: Number,
-      default: null
-    }
-  },
+  props: ['id'],
   data() {
     return {
       event: {}
@@ -53,7 +45,6 @@ export default {
   }
 }
 </script>
-
 <style scoped>
 .location {
   margin-bottom: 0;
